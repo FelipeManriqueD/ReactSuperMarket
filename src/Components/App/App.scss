@@ -1,0 +1,40 @@
+.content {
+    &__box {
+        position: relative;
+        width: 90%;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        background: white;
+        min-height: 100px;
+        padding: 20px;
+
+        &__home {
+            width: 50%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__image {
+            width: 30%;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .content {
+        &__box {
+            top: 20%
+        }
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .content {
+        &__box {
+            bottom: 10%;
+        }
+    }
+}

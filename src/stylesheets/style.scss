@@ -1,0 +1,58 @@
+/* Mixin */
+@mixin displayFlexColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+/**
+* base colors
+*/
+@import './colors';
+@import '../Components/App/App.scss';
+@import '../Components/HomePage/Home.scss';
+@import '../Components/HomePage/products/Products.scss';
+@import '../Components/Counter/Counter.scss';
+@import '../Components/Content/Content.scss';
+@import '../Components/LoginPage/Login.scss';
+@import '../Components/Form/Form.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.wrapper {
+    @include displayFlexColumn;
+    align-content: space-between;
+    height: 100vh;
+
+    .content {
+        flex: 1 1 0%;
+
+        &__header {
+            flex: 2 1 20%;
+        }
+
+        &__main {
+            flex: 4 1 25%;
+            background-color: $light-gray;
+        }
+
+        &__footer {
+            background-color: green;
+            flex: 0.5;
+        }
+    }
+}
+
+@media all and (max-width: 400px) {
+    .wrapper {
+        .content {
+            &__header {
+                flex: 1 1 15%;
+            }
+
+        }
+    }
+}

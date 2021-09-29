@@ -1,0 +1,261 @@
+@import './colors';
+
+@mixin flexColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flexRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.content {
+    .home {
+        &__header {
+            padding: 0;
+        }
+
+        &__nav {
+            @include flexRow;
+            background-color: $black-color;
+            color: $white-color;
+            padding: 10px;
+
+            &-leftNav,
+            &-rightNav {
+                @include flexRow;
+                align-items: center;
+            }
+
+            &-rightNav {
+                width: 50%;
+            }
+        }
+
+        &__search {
+            flex: 5;
+
+            .inputSearch {
+                width: calc(100% - 30px);
+            }
+        }
+
+        &__menu {
+            ul {
+                list-style: none;
+                margin: 0;
+
+                .list {
+                    @include flexColumn;
+                    border-top: 1px solid rgba(255, 255, 255, .1);
+                    transition: all .5s;
+                    opacity: 0;
+                    background-color: $black-color;
+                    position: absolute;
+                    top: 52px;
+
+                    li {
+                        padding: 10px;
+
+                        &:hover {
+                            background: $enabled-color;
+                            cursor: auto;
+                        }
+
+                        &:last-child {
+                            border-bottom-left-radius: 4px;
+                            border-bottom-right-radius: 4px;
+                        }
+                    }
+
+                    &__right {
+                        right: 0;
+                        width: 50%;
+                    }
+
+                    &__left {
+                        left: 0;
+                        width: 30%;
+                    }
+                }
+            }
+
+            .label {
+                display: block;
+                color: $white-color;
+                cursor: pointer;
+
+                &:before {
+                    height: 2px;
+                    width: 20px;
+                    background: $white-color;
+                    display: inline-block;
+                    content: "";
+                    box-shadow: 0px -5px 0px 0px $white-color,
+                        0px -10px 0px 0px $white-color;
+                    margin-right: 10px;
+                    transition: all .5s;
+                    position: relative;
+                    opacity: 1;
+                }
+
+                &.label-right {
+                    &:before {
+                        height: 30px;
+                        width: 30px;
+                        display: inline-block;
+                        content: "";
+                        background: url('/images/shopping-car.png') no-repeat;
+                        background-size: cover;
+                        margin-right: 10px;
+                        transition: all .5s;
+                        position: relative;
+                        opacity: 1;
+                        box-shadow: none;
+                    }
+                }
+            }
+
+            input[type="checkbox"] {
+                visibility: hidden;
+                position: absolute;
+            }
+
+            #collapse-left:checked~.list,
+            #collapse-right:checked~.list {
+                margin-top: 0;
+                opacity: 1;
+            }
+
+            #collapse-left:checked+label:before,
+            #collapse-right:checked+label:before {
+                position: relative;
+                opacity: 0.5;
+            }
+
+            .inputSearch {
+                margin: 0;
+            }
+        }
+
+        &__category {
+            @include flexColumn;
+            justify-content: center;
+            padding: 20px;
+
+            .products {
+                display: flex;
+                justify-content: space-around;
+                width: 80%;
+                margin: 20px auto 0;
+
+                .list {
+                    @include flexColumn;
+                    justify-content: center;
+                    align-items: center;
+
+                    &__image_container {
+                        border: 1px solid $enabled-color;
+                        border-radius: 50%;
+                        padding: 15px;
+                        background-color: $light-gray;
+                    }
+
+                    &__image {
+                        width: 50px;
+                        height: 50px;
+                    }
+
+                    &.active {
+                        .list__image_container {
+                            background-color: $enabled-color;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__products {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            margin: 0 auto;
+            align-items: center;
+            overflow-y: auto;
+            height: 40.33vh;
+
+            .products {
+                &__container {
+                    margin: 10px 0;
+                    background-color: $medium-gray;
+                    padding: 10px;
+
+                    ul {
+                        display: flex;
+                        flex-direction: row;
+                        list-style: none;
+                        justify-content: flex-start;
+                        flex-wrap: wrap;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .product {
+
+        &__info {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        &__container {
+            background-color: $white-color;
+            flex: 1;
+            border-radius: 10px;
+            margin: 5px;
+            flex-direction: column;
+            justify-content: space-between;
+            display: flex;
+        }
+
+        &__price {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__description {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: space-between;
+            margin-top: 5px;
+        }
+
+        &__buy {
+            border-top: 1px solid $light-gray;
+            padding: 10px 8px;
+        }
+    }
+}
+
+@media all and (min-width: 800px) {
+    .content {
+        .product {
+            &__container {
+                height: 30vh;
+            }
+
+            &__description {
+                justify-content: space-evenly;
+            }
+        }
+    }
+}

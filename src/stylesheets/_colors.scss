@@ -1,0 +1,34 @@
+// variables.scss
+$white-color: #f4f4f4;
+$dark-color: #402f2b;
+$light-color: #e6d5c3;
+$medium-color: #977978;
+$alert-color: #cb492a;
+$light-black-color: #706e72;
+$black-color: #000;
+$light-gray: #eee;
+$medium-gray: #ddd;
+$enabled-color: #BF403B;
+$disabled-color: #C0C0C0;
+$active-color: #A72F29;
+$price-color: #4b91d4;
+$price-ref: #acacac;
+$price-name:#747474;
+
+:export {
+    whiteColor: $white-color;
+    darkColor: $dark-color;
+    lightColor: $light-color;
+    mediumColor: $medium-color;
+    alertColor: $alert-color;
+    lightBlackColor: $light-black-color;
+    blackColor: $black-color;
+    lightGray: $light-gray;
+    mediumGray: $medium-gray;
+    enabledColor: $enabled-color;
+    disabledColor: $disabled-color;
+    activeColor: $active-color;
+    priceColor: $price-color;
+    priceName: $price-name;
+    priceRef: $price-ref;
+}

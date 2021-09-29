@@ -1,0 +1,31 @@
+@import "../../stylesheets/colors";
+
+.form {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+
+    &__group {
+        display: flex;
+        flex-direction: row;
+        margin: 15px 0;
+        text-align: left;
+    }
+
+    &__aux {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    &__label {
+        margin-bottom: 5px;
+    }
+
+    &__input {
+        border-radius: 10px;
+        padding: 5px;
+        background-color: $white-color;
+        border: 1px solid $light-gray;
+    }
+}

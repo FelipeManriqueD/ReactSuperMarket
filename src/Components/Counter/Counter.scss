@@ -1,0 +1,10 @@
+@import './colors';
+
+.counter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #ccc;
+    border-radius: 8px;
+
+}

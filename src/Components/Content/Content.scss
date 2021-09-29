@@ -1,0 +1,24 @@
+@mixin displayFlexColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    @include displayFlexColumn;
+    height: 100%;
+
+    .section {
+        flex: 1;
+
+        &__content {
+            padding: 15px;
+        }
+
+        &:first-of-type {
+            flex: 2;
+            @include displayFlexColumn;
+            justify-content: flex-end;
+            padding-top: 80px;
+        }
+    }
+}
